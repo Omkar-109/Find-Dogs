@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- <form action="/get-dogs" method="post">
+        <input type="submit" value="Random dog image">
+    </form>
+     -->
+
+     <form id="myForm" method="post">
+        <input id="get-dogs" type="submit" value="Random Dog Image" formaction="/get-dogs">
+        <hr>
+        <input id="enter-breed-name" type="search" name="enter-breed-name" placeholder="Enter breed name">
+        <input id="get-breed" type="submit" value="Based on breed" formaction="/get-breed">
+     </form>
+
+    <p><%= content %></p>
+    <img src="<%= imageUrl %>">
+</body>
+</html>
