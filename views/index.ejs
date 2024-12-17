@@ -3,24 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+/>
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Dogs Gallery</title>
 </head>
 <body>
-    
-
-    <!-- <form action="/get-dogs" method="post">
-        <input type="submit" value="Random dog image">
-    </form>
-     -->
-
-     <form id="myForm" method="post">
-        <input id="get-dogs" type="submit" value="Random Dog Image" formaction="/get-dogs">
+    <h1>Dogs Gallery</h1>
+    <hr class="top-hr">
+     <form class="bg-light" id="myForm" method="post">
+        <input class="btn btn-primary" id="get-dogs" type="submit" value="Show Random Dog Image" formaction="/get-dogs">
         <hr>
-        <input id="enter-breed-name" type="search" name="enter-breed-name" placeholder="Enter breed name">
-        <input id="get-breed" type="submit" value="Based on breed" formaction="/get-breed">
+        <input class="form-control input-box" id="enter-breed-name" type="search" name="enter-breed-name" placeholder="Enter breed name">
+        <input class="btn btn-primary" id="get-breed" type="submit" value="Search Based on breed" formaction="/get-breed">
      </form>
 
-    <p><%= content %></p>
-    <img src="<%= imageUrl %>">
+     <% if(locals.imageUrl){ %>
+        <p><%= content %></p>
+        <img src="<%= imageUrl %>" alt="Dog image" height="200px">
+     <% }else {%>
+        <p><%= content %></p>
+    <% } %>
+    
+    <div class="bg-light shadow-sm listDiv">
+        <h2>List of available Breeds</h2>
+        <div class="scrollable bg-light">
+            <% for(i=0; i<breedList.length ; i++){%>
+                <p><%= breedList[i] %></p>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>
